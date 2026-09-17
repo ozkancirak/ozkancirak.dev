@@ -18,7 +18,7 @@ export function Hero() {
       </Reveal>
 
       <Reveal delay={0.08}>
-        <h1 className="mt-7 text-4xl font-bold tracking-tight sm:mt-8 sm:text-5xl">
+        <h1 className="mt-7 font-bricolage text-4xl font-bold tracking-tight sm:mt-8 sm:text-5xl">
           {profile.greeting}
         </h1>
       </Reveal>

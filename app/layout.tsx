@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Funnel_Sans } from "next/font/google";
+import { Funnel_Sans, Bricolage_Grotesque } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -10,6 +10,12 @@ const funnelSans = Funnel_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin", "latin-ext"],
   display: "swap",
 });
 
@@ -102,7 +108,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${funnelSans.variable} h-full`} suppressHydrationWarning>
+    <html lang="en" className={`${funnelSans.variable} ${bricolage.variable} h-full`} suppressHydrationWarning>
       {/* Browser extensions (e.g. ColorZilla's cz-shortcut-listen) add
           attributes to <body> before hydration; ignore those mismatches. */}
       <body className="flex min-h-full flex-col" suppressHydrationWarning>
