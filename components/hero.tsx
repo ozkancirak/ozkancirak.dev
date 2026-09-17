@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { NowPlaying } from "@/components/now-playing";
 import { Highlighter } from "@/components/ui/highlighter";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Socials } from "@/components/socials";
 import { profile } from "@/lib/content";
 
@@ -12,15 +12,7 @@ export function Hero() {
         {/* Non-clipping group wrapper so the now-playing bubble can extend past
             the avatar and reveal its card when the avatar is hovered. */}
         <div className="group relative inline-block">
-          <div className="relative size-20 overflow-hidden rounded-full bg-secondary/10 ring-1 ring-border sm:size-24">
-            <Image
-              src={profile.avatar}
-              alt={`${profile.displayName} — ${profile.role}`}
-              fill
-              priority
-              className="object-cover"
-            />
-          </div>
+          <Skeleton className="size-20 rounded-full ring-1 ring-border sm:size-24" />
           <NowPlaying />
         </div>
       </Reveal>
