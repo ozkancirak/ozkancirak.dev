@@ -96,7 +96,7 @@ export const profile = {
   displayName: "Özkan",
   alternateNames: ["Özkan Çırak", "ozkancirak", "ozkan"],
   role: "Full-stack developer",
-  greeting: "Hi, I'm Özkan",
+  greeting: "Özkan Çırak",
   tagline: {
     before: "Self-taught ",
     highlight: "fullstack developer",
