@@ -23,17 +23,11 @@ export async function GET() {
     }
   }
 
-  // Fallback demo for preview when Spotify credentials are not configured yet
-  return NextResponse.json({
-    isPlaying: true,
-    title: "Starboy",
-    artist: "The Weeknd, Daft Punk",
-    album: "Starboy",
-    albumImageUrl: "https://i.scdn.co/image/ab67616d0000b2734718e2b124f79258be7bc452",
-    songUrl: "https://open.spotify.com/track/7MXVkk9YM5IZxh0WSlE69q",
-    durationMs: 230453,
-    progressMs: 72000,
-  }, {
-    headers: { "Cache-Control": "no-store" },
-  });
+  // Not playing anything by default until actively connected
+  return NextResponse.json(
+    { isPlaying: false },
+    {
+      headers: { "Cache-Control": "no-store" },
+    }
+  );
 }
