@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SiNextdotjs, SiGithub } from "react-icons/si";
+import { SiNextdotjs } from "react-icons/si";
 import { Container } from "@/components/container";
 import { profile } from "@/lib/content";
 
@@ -24,15 +24,6 @@ export function SiteFooter() {
           >
             Built with
             <SiNextdotjs className="size-4" aria-label="Next.js" />
-          </Link>
-          <Link
-            href={profile.sourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
-          >
-            Source on
-            <SiGithub className="size-4" aria-label="GitHub" />
           </Link>
         </div>
       </Container>

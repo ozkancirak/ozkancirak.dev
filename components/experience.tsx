@@ -1,7 +1,6 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
-import { availability, experience } from "@/lib/content";
+import { Skeleton } from "@/components/ui/skeleton";
+import { availability } from "@/lib/content";
 
 export function Experience() {
   return (
@@ -32,37 +31,23 @@ export function Experience() {
             <p className="mt-0.5 text-muted-foreground">{availability.detail}</p>
           </Reveal>
 
-          {experience.map((item, i) => (
+          {Array.from({ length: 2 }).map((_, i) => (
             <Reveal
               as="li"
-              key={`${item.company}-${item.period}`}
+              key={i}
               delay={(i + 1) * 0.08}
-              className="relative"
+              className="relative space-y-2.5"
             >
               <span
                 aria-hidden
                 className="absolute -left-7 top-1.5 -translate-x-1/2"
               >
-                <span className="block size-2.5 rounded-full bg-foreground ring-4 ring-background" />
+                <span className="block size-2.5 rounded-full bg-secondary-foreground/20 ring-4 ring-background" />
               </span>
 
-              <p className="text-sm text-muted-foreground">{item.period}</p>
-              <h3 className="mt-1 text-lg font-semibold">
-                {item.url ? (
-                  <Link
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-1 transition-colors hover:text-foreground"
-                  >
-                    {item.company}
-                    <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-px group-hover:translate-x-px" />
-                  </Link>
-                ) : (
-                  item.company
-                )}
-              </h3>
-              <p className="mt-0.5 text-muted-foreground">{item.role}</p>
+              <Skeleton className="h-3.5 w-24 rounded bg-secondary/60" />
+              <Skeleton className="h-5 w-44 rounded bg-secondary/80" />
+              <Skeleton className="h-4 w-32 rounded bg-secondary/50" />
             </Reveal>
           ))}
         </ol>
