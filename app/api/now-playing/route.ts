@@ -4,18 +4,26 @@ import { getNowPlaying } from "@/lib/spotify";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  try {
-    const data = await getNowPlaying();
-    if (data && data.isPlaying) {
+  const hasEnv =
+    process.env.SPOTIFY_CLIENT_ID &&
+    process.env.SPOTIFY_CLIENT_SECRET &&
+    process.env.SPOTIFY_REFRESH_TOKEN;
+
+  if (hasEnv) {
+    try {
+      const data = await getNowPlaying();
       return NextResponse.json(data, {
         headers: { "Cache-Control": "no-store" },
       });
+    } catch (e) {
+      console.error("Spotify API error:", e);
+      return NextResponse.json({ isPlaying: false }, {
+        headers: { "Cache-Control": "no-store" },
+      });
     }
-  } catch {
-    // Spotify credentials not provided in .env
   }
 
-  // Authentic Spotify CDN album image on i.scdn.co
+  // Fallback demo for preview when Spotify credentials are not configured yet
   return NextResponse.json({
     isPlaying: true,
     title: "Starboy",
