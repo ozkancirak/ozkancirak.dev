@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { profile, siteUrl, siteDomain } from "@/lib/content";
 
 const funnelSans = Funnel_Sans({
@@ -122,6 +123,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <SmoothScroll />
           <TooltipProvider delay={120}>{children}</TooltipProvider>
         </ThemeProvider>
         <Analytics />
