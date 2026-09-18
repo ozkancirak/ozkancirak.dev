@@ -71,21 +71,23 @@ export type Experience = {
   role: string;
   period: string;
   url?: string;
+  description?: string;
 };
 
 export const experience: Experience[] = [
   {
-    company: "Acme Labs",
-    role: "Full-Stack Engineer",
-    period: "2024 — Present",
-    url: "https://example.com",
+    company: "İstanbul Aydın University",
+    role: "IT Support Intern",
+    period: "2024 — 2025",
+    url: "https://www.aydin.edu.tr",
   },
 ];
+
 
 export const availability = {
   period: "Now",
   status: "Available for work",
-  detail: "Open to freelance and full-time engineering roles.",
+  detail: "Open to freelance and full-time roles.",
 };
 
 export const siteUrl = "https://ozkancirak.dev";
@@ -108,7 +110,7 @@ export const profile = {
   sourceUrl: "https://github.com/ozkancirak/ozkancirak.dev",
   sameAs: [
     "https://github.com/ozkancirak",
+    "https://www.linkedin.com/in/ozkancirak/",
     "https://x.com/ozkancirak",
-    "https://linkedin.com/in/ozkancirak",
   ],
 };

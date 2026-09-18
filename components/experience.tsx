@@ -1,6 +1,6 @@
+import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
-import { Skeleton } from "@/components/ui/skeleton";
-import { availability } from "@/lib/content";
+import { availability, experience } from "@/lib/content";
 
 export function Experience() {
   return (
@@ -9,12 +9,10 @@ export function Experience() {
         <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Experience</h2>
       </Reveal>
 
-      {/* Vertical timeline — the line encodes chronology and scales as more
-          roles are added. */}
       <div className="relative mt-6 pl-7">
         <span
           aria-hidden
-          className="absolute left-0 top-2 h-[calc(100%-1rem)] w-px bg-border"
+          className="absolute left-0 top-2 h-[calc(100%-1rem)] w-px -translate-x-1/2 bg-border"
         />
         <ol className="space-y-10">
           <Reveal as="li" className="relative">
@@ -31,23 +29,37 @@ export function Experience() {
             <p className="mt-0.5 text-muted-foreground">{availability.detail}</p>
           </Reveal>
 
-          {Array.from({ length: 2 }).map((_, i) => (
+          {experience.map((exp, i) => (
             <Reveal
               as="li"
-              key={i}
+              key={exp.role + exp.company}
               delay={(i + 1) * 0.08}
-              className="relative space-y-2.5"
+              className="relative"
             >
               <span
                 aria-hidden
-                className="absolute -left-7 top-1.5 -translate-x-1/2"
+                className="absolute -left-7 top-1.5 flex -translate-x-1/2"
               >
-                <span className="block size-2.5 rounded-full bg-secondary-foreground/20 ring-4 ring-background" />
+                <span className="block size-2.5 rounded-full bg-foreground ring-4 ring-background" />
               </span>
 
-              <Skeleton className="h-3.5 w-24 rounded bg-secondary/60" />
-              <Skeleton className="h-5 w-44 rounded bg-secondary/80" />
-              <Skeleton className="h-4 w-32 rounded bg-secondary/50" />
+              <p className="text-sm text-muted-foreground">{exp.period}</p>
+              <h3 className="mt-1 text-lg font-semibold">
+                {exp.url ? (
+                  <a
+                    href={exp.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-1 transition-colors hover:text-foreground"
+                  >
+                    {exp.company}
+                    <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-px group-hover:translate-x-px" />
+                  </a>
+                ) : (
+                  exp.company
+                )}
+              </h3>
+              <p className="mt-0.5 text-muted-foreground">{exp.role}</p>
             </Reveal>
           ))}
         </ol>

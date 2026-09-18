@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { SiGithub, SiX, SiHackerone, SiDiscord } from "react-icons/si";
+import { SiGithub, SiX, SiDiscord } from "react-icons/si";
+import { FaLinkedinIn } from "react-icons/fa6";
 
 export type Social = {
   name: string;
@@ -10,8 +11,8 @@ export type Social = {
 
 export const socials: Social[] = [
   { name: "GitHub", href: "https://github.com/ozkancirak", icon: SiGithub },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/ozkancirak/", icon: FaLinkedinIn },
   { name: "X", href: "https://x.com/ozkancirak", icon: SiX },
-  { name: "HackerOne", href: "https://hackerone.com", icon: SiHackerone },
   { name: "Discord", href: "https://discord.com", icon: SiDiscord },
 ];
 
