@@ -12,8 +12,8 @@ export type Social = {
 export const socials: Social[] = [
   { name: "GitHub", href: "https://github.com/ozkancirak", icon: SiGithub },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/ozkancirak/", icon: FaLinkedinIn },
-  { name: "X", href: "https://x.com/ozkancirak", icon: SiX },
-  { name: "Discord", href: "https://discord.com", icon: SiDiscord },
+  // { name: "X", href: "https://x.com/ozkancirak", icon: SiX },
+  // { name: "Discord", href: "https://discord.com", icon: SiDiscord },
 ];
 
 export function Socials() {

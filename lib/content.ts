@@ -111,6 +111,6 @@ export const profile = {
   sameAs: [
     "https://github.com/ozkancirak",
     "https://www.linkedin.com/in/ozkancirak/",
-    "https://x.com/ozkancirak",
+    // "https://x.com/ozkancirak",
   ],
 };
