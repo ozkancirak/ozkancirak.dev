@@ -21,7 +21,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 const description =
-  `${profile.fullName} — Full-Stack Developer & IT Specialist, building things from idea to launch.`;
+  `${profile.fullName} — Full-Stack Developer building things from idea to launch.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

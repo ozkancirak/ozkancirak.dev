@@ -24,7 +24,7 @@ export function Hero() {
       </Reveal>
 
       <Reveal delay={0.16}>
-        <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:max-w-2xl sm:text-lg">
           {profile.tagline.before}
           {/*
             rough-notation injects an absolutely-positioned SVG next to the
