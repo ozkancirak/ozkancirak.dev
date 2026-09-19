@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { SiGithub, SiX, SiDiscord } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
 import { FaLinkedinIn } from "react-icons/fa6";
 
 export type Social = {

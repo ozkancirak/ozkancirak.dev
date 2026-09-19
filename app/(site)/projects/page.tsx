@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/motion/reveal";
-import { Skeleton } from "@/components/ui/skeleton";
+import { ProjectLogo } from "@/components/project-logo";
+import { projects, type Project } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -9,28 +13,58 @@ export const metadata: Metadata = {
   alternates: { canonical: "/projects" },
 };
 
-function ProjectRowSkeleton() {
+function MetaLink({
+  href,
+  icon: Icon,
+  children,
+}: {
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+  children: React.ReactNode;
+}) {
   return (
-    <div className="py-7 sm:py-8 space-y-3">
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+    >
+      <Icon className="size-3.5" />
+      {children}
+    </Link>
+  );
+}
+
+function ProjectRow({ project }: { project: Project }) {
+  return (
+    <div className="py-7 sm:py-8">
       <div className="flex items-center gap-3">
-        <Skeleton className="size-9 rounded-xl bg-secondary/80" />
-        <Skeleton className="h-5 w-36 rounded bg-secondary/80" />
+        <ProjectLogo project={project} className="size-9" />
+        <h2 className="font-semibold text-foreground">{project.name}</h2>
       </div>
 
-      <div className="mt-3 space-y-2">
-        <Skeleton className="h-3.5 w-4/5 rounded bg-secondary/60" />
-        <Skeleton className="h-3.5 w-3/5 rounded bg-secondary/40" />
-      </div>
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+        {project.description}
+        {project.detail ? ` ${project.detail}` : null}
+      </p>
 
-      <div className="mt-4 flex items-center gap-2">
-        <Skeleton className="h-3 w-16 rounded bg-secondary/50" />
-        <Skeleton className="h-3 w-14 rounded bg-secondary/40" />
-        <Skeleton className="h-3 w-20 rounded bg-secondary/40" />
-      </div>
+      {project.tech && (
+        <p className="mt-3 text-xs text-muted-foreground/70">
+          {project.tech.join(" · ")}
+        </p>
+      )}
 
-      <div className="mt-4 flex items-center gap-4">
-        <Skeleton className="h-4 w-20 rounded bg-secondary/50" />
-        <Skeleton className="h-4 w-18 rounded bg-secondary/40" />
+      <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+        {project.url && (
+          <MetaLink href={project.url} icon={ArrowUpRight}>
+            Website
+          </MetaLink>
+        )}
+        {project.githubUrl && (
+          <MetaLink href={project.githubUrl} icon={SiGithub}>
+            GitHub
+          </MetaLink>
+        )}
       </div>
     </div>
   );
@@ -48,9 +82,9 @@ export default function ProjectsPage() {
       </Reveal>
 
       <div className="mt-6 divide-y divide-dashed divide-border">
-        {Array.from({ length: 3 }).map((_, i) => (
-          <Reveal key={i} delay={i * 0.06}>
-            <ProjectRowSkeleton />
+        {projects.map((project, i) => (
+          <Reveal key={project.slug} delay={i * 0.06}>
+            <ProjectRow project={project} />
           </Reveal>
         ))}
       </div>
