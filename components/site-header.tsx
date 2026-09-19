@@ -7,7 +7,10 @@ import { Container } from "@/components/container";
 import { siteDomain } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-const navItems = [{ href: "/projects", label: "Projects" }];
+const navItems = [
+  { href: "/projects", label: "Projects" },
+  { href: "/writing", label: "Writing" },
+];
 
 export function SiteHeader() {
   const pathname = usePathname();

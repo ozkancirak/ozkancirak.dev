@@ -36,6 +36,19 @@ export const projects: Project[] = [
   },
 ];
 
+export type Post = {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  url: string;
+  platform?: "Medium" | "Substack" | "Dev.to" | "Personal";
+  readTime?: string;
+  featured?: boolean;
+};
+
+export const posts: Post[] = [];
+
 export type Experience = {
   company: string;
   role: string;
