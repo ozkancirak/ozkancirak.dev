@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { SiGithub } from "react-icons/si";
+import { SiGithub, SiThreads, SiX } from "react-icons/si";
 import { FaLinkedinIn } from "react-icons/fa6";
 
 export type Social = {
@@ -12,8 +12,8 @@ export type Social = {
 export const socials: Social[] = [
   { name: "GitHub", href: "https://github.com/ozkancirak", icon: SiGithub },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/ozkancirak/", icon: FaLinkedinIn },
-  // { name: "X", href: "https://x.com/ozkancirak", icon: SiX },
-  // { name: "Discord", href: "https://discord.com", icon: SiDiscord },
+  { name: "X", href: "https://x.com/ozkcrk", icon: SiX },
+  { name: "Threads", href: "https://www.threads.net/@ozkcrk", icon: SiThreads },
 ];
 
 export function Socials() {
