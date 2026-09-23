@@ -74,8 +74,6 @@ const jsonLd = {
       "@id": `${siteUrl}/#person`,
       name: profile.fullName,
       alternateName: profile.alternateNames,
-      givenName: "Developer",
-      familyName: "Portfolio",
       url: siteUrl,
       image: `${siteUrl}${profile.avatar}`,
       email: `mailto:${profile.email}`,
