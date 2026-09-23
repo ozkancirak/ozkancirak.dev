@@ -73,7 +73,7 @@ export const availability = {
   detail: "Open to freelance and full-time roles.",
 };
 
-export const siteUrl = "https://ozkancirak.dev";
+export const siteUrl = "https://www.ozkancirak.dev";
 export const siteDomain = "ozkancirak.dev";
 
 export const profile = {
