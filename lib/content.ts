@@ -21,6 +21,20 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "ration",
+    name: "Ration",
+    description: "AI coding quotas in your Windows tray.",
+    detail: "Tracks session and weekly limits, reset times, and token costs across providers.",
+    tech: ["C#", ".NET", "WinUI 3"],
+    year: "2026",
+    githubUrl: "https://github.com/ozkancirak/Ration",
+    badge: { label: "Open Source", tone: "accent" },
+    monogram: "R",
+    logo: "/projects/ration.svg",
+    logoStyle: "icon",
+    featured: true,
+  },
+  {
     slug: "temu-local-filter",
     name: "Temu Local Filter",
     description: "Hide local warehouse items on Temu.",
